@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { mockData } from './data/mock';
-import SEO from './components/SEO';
 import Hero from './components/Hero';
 import Problems from './components/Problems';
 import CTASection from './components/CTASection';
@@ -28,10 +26,6 @@ import { initGA, initFBPixel, trackCTAClick, initScrollTracking, trackTimeOnPage
 function LandingPage({ onCTAClick }) {
   return (
     <>
-      {/* SEO Component - Desabilitado temporariamente devido a erro no Helmet 
-          Para habilitar: descomentar linha abaixo após corrigir react-helmet-async
-          <SEO /> 
-      */}
       <Hero data={mockData.hero} onCTAClick={() => onCTAClick('hero')} />
       <Problems data={mockData.problems} />
       <CTASection
@@ -109,13 +103,12 @@ function App() {
   };
 
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <div className={`App ${isLoaded ? 'loaded' : ''}`}>
-          <Routes>
-            <Route path="/" element={<LandingPage onCTAClick={handleCTAClick} />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-          </Routes>
+    <BrowserRouter>
+      <div className={`App ${isLoaded ? 'loaded' : ''}`}>
+        <Routes>
+          <Route path="/" element={<LandingPage onCTAClick={handleCTAClick} />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
           
           {/* Sticky Floating CTA - Only on landing page */}
           {window.location.pathname === '/' && (
@@ -133,7 +126,6 @@ function App() {
           <Toaster position="top-right" />
         </div>
       </BrowserRouter>
-    </HelmetProvider>
   );
 }
 
