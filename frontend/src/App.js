@@ -19,6 +19,8 @@ import Footer from './components/Footer';
 import StickyFloatingCTA from './components/StickyFloatingCTA';
 import LeadFormModal from './components/LeadFormModal';
 import AdminDashboard from './components/AdminDashboard';
+import LoginPage from './components/LoginPage';
+import PrivateRoute from './components/PrivateRoute';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
 import { initGA, initFBPixel, trackCTAClick, initScrollTracking, trackTimeOnPage } from './utils/analytics';
@@ -107,7 +109,15 @@ function App() {
       <div className={`App ${isLoaded ? 'loaded' : ''}`}>
         <Routes>
           <Route path="/" element={<LandingPage onCTAClick={handleCTAClick} />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route 
+            path="/admin" 
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            } 
+          />
         </Routes>
           
           {/* Sticky Floating CTA - Only on landing page */}

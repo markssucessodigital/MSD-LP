@@ -30,6 +30,7 @@ api_router = APIRouter(prefix="/api")
 
 # Import routes
 from routes.leads import router as leads_router
+from routes.auth import router as auth_router
 
 # Health check routes
 @api_router.get("/")
@@ -57,6 +58,7 @@ async def health_check():
         }
 
 # Include routers
+api_router.include_router(auth_router, tags=["Authentication"])
 api_router.include_router(leads_router, tags=["Leads"])
 
 # Include the main router in the app

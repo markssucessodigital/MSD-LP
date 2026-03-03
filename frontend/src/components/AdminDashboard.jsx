@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { leadsAPI } from '../services/api';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 import { Badge } from './ui/badge';
-import { Download, TrendingUp, Users, Clock, Award } from 'lucide-react';
+import { Download, TrendingUp, Users, Clock, Award, LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const [leads, setLeads] = useState([]);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,6 +18,12 @@ const AdminDashboard = () => {
   useEffect(() => {
     fetchData();
   }, [filter]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_token');
+    toast.success('Logout realizado com sucesso!');
+    navigate('/login');
+  };
 
   const fetchData = async () => {
     try {
@@ -75,9 +83,19 @@ const AdminDashboard = () => {
     <div className="min-h-screen bg-neutral-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-neutral-900 mb-2">Dashboard Admin - MSD</h1>
-          <p className="text-neutral-600">Gerencie seus leads e acompanhe conversões</p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-neutral-900 mb-2">Dashboard Admin - MSD</h1>
+            <p className="text-neutral-600">Gerencie seus leads e acompanhe conversões</p>
+          </div>
+          <Button
+            onClick={handleLogout}
+            variant="outline"
+            className="flex items-center gap-2"
+          >
+            <LogOut className="w-4 h-4" />
+            Sair
+          </Button>
         </div>
 
         {/* Stats Cards */}
