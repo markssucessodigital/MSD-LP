@@ -3,6 +3,7 @@ import './App.css';
 import { mockData } from './data/mock';
 import Hero from './components/Hero';
 import Problems from './components/Problems';
+import CTASection from './components/CTASection';
 import StrategicVision from './components/StrategicVision';
 import Method from './components/Method';
 import PillarsConnection from './components/PillarsConnection';
@@ -14,6 +15,7 @@ import SocialProof from './components/SocialProof';
 import Objections from './components/Objections';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import StickyFloatingCTA from './components/StickyFloatingCTA';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
 
@@ -57,16 +59,34 @@ function App() {
       {/* Problems Section */}
       <Problems data={mockData.problems} />
       
-      {/* Strategic Vision Section (NEW) */}
+      {/* CTA 1: Após Problems - Momento de Dor */}
+      <CTASection
+        title="Identificou Seu Negócio Nesses Desafios?"
+        subtitle="Não deixe esses problemas travarem seu crescimento. Agende um diagnóstico estratégico gratuito."
+        ctaText="Quero Resolver Esses Problemas"
+        variant="default"
+        onCTAClick={handleCTAClick}
+      />
+      
+      {/* Strategic Vision Section */}
       <StrategicVision data={mockData.strategicVision} />
       
-      {/* Method M.D.S Section (Enhanced) */}
+      {/* Method M.D.S Section */}
       <Method data={mockData.method} />
       
-      {/* Pillars Connection Section (NEW) */}
+      {/* CTA 2: Após Method - Entendeu a Solução */}
+      <CTASection
+        title="Pronto Para Implementar o Método M.D.S?"
+        subtitle="Estruture seu negócio digital em 30 dias com metodologia comprovada."
+        ctaText="Quero Implementar o Método M.D.S"
+        variant="light"
+        onCTAClick={handleCTAClick}
+      />
+      
+      {/* Pillars Connection Section */}
       <PillarsConnection data={mockData.pillarsConnection} />
       
-      {/* Implementation Section (Enhanced) */}
+      {/* Implementation Section */}
       <Implementation data={mockData.implementation} />
       
       {/* Benefits Section */}
@@ -75,8 +95,17 @@ function App() {
       {/* Applications Section */}
       <Applications data={mockData.applications} />
       
-      {/* Differential Section (NEW) */}
+      {/* Differential Section */}
       <Differential data={mockData.differential} />
+      
+      {/* CTA 3: Após Differential - Percebeu Valor Único */}
+      <CTASection
+        title="Escolha Engenharia, Não Agência Comum"
+        subtitle="Trabalhe com quem estrutura crescimento de verdade, não só executa tarefas."
+        ctaText="Quero Engenharia de Crescimento"
+        variant="default"
+        onCTAClick={handleCTAClick}
+      />
       
       {/* Social Proof Section */}
       <SocialProof data={mockData.socialProof} />
@@ -89,6 +118,9 @@ function App() {
       
       {/* Footer */}
       <Footer data={mockData.footer} />
+      
+      {/* Sticky Floating CTA */}
+      <StickyFloatingCTA onCTAClick={handleCTAClick} />
       
       {/* Toast Notifications */}
       <Toaster position="top-right" />

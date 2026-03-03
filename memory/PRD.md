@@ -71,6 +71,40 @@ Frontend completo com 10 seções básicas e mock data.
    - Nota final sobre resultado dos 30 dias
    - Timeline visual melhorada
 
+### Versão 2.1 - CTAs Estratégicos (03/12/2025 - 01:20) 🎯
+**Sistema de Conversão Multi-Touch Implementado:**
+
+1. **5 CTAs Contextualizados Estrategicamente Posicionados:**
+   - **CTA Hero** (já existia): "Agendar Diagnóstico Estratégico Gratuito"
+   - **CTA 1 - Após Problems**: "Quero Resolver Esses Problemas" 
+     - Momento: Dor máxima identificada
+     - Variant: Default (dourado)
+   - **CTA 2 - Após Method**: "Quero Implementar o Método M.D.S"
+     - Momento: Entendeu a solução completa
+     - Variant: Light (fundo claro)
+   - **CTA 3 - Após Differential**: "Quero Engenharia de Crescimento"
+     - Momento: Percebeu valor único vs concorrência
+     - Variant: Default (dourado)
+   - **CTA Final** (já existia): Seção completa de fechamento
+
+2. **Sticky Floating CTA (Novo):**
+   - Aparece após scroll de 800px
+   - Posição: Bottom-right fixo
+   - Botão de fechar (X) disponível
+   - Copy: "Pronto para Estruturar Seu Crescimento?"
+   - Animação: Slide-up suave
+   - Sempre visível durante navegação
+
+3. **Características dos CTAs:**
+   - Copy contextualizada para cada momento da jornada
+   - Trust badges em todos: "Gratuito · Sem compromisso · Resposta em 24h"
+   - Hover effects e animações suaves
+   - Consistência visual (cores dourado/preto)
+   - Todos direcionam para WhatsApp com mensagem pré-definida
+   - Toast notification ao clicar
+
+**Total de CTAs na LP: 6 CTAs estratégicos**
+
 ### Funcionalidades Técnicas Adicionadas
 - ✅ Accordion expansível nos pilares do método
 - ✅ Accordion expansível na implementação
