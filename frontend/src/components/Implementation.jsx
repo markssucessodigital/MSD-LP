@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from './ui/card';
-import { Calendar, CheckCircle2 } from 'lucide-react';
+import { Calendar, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Implementation = ({ data }) => {
+  const [expandedStep, setExpandedStep] = useState(null);
+
+  const toggleStep = (index) => {
+    setExpandedStep(expandedStep === index ? null : index);
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-neutral-50 to-neutral-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,9 +55,40 @@ const Implementation = ({ data }) => {
                         <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-amber-600 transition-colors">
                           {step.title}
                         </h3>
-                        <p className="text-neutral-600">
+                        <p className="text-neutral-600 mb-4">
                           {step.description}
                         </p>
+
+                        {/* Toggle Button */}
+                        <button
+                          onClick={() => toggleStep(index)}
+                          className="flex items-center gap-2 text-amber-600 hover:text-amber-700 font-semibold text-sm transition-colors"
+                        >
+                          {expandedStep === index ? (
+                            <>
+                              <ChevronUp className="w-4 h-4" />
+                              <span>Ocultar detalhes</span>
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown className="w-4 h-4" />
+                              <span>Ver entregáveis</span>
+                            </>
+                          )}
+                        </button>
+
+                        {/* Deliverables */}
+                        {expandedStep === index && (
+                          <div className="mt-4 pt-4 border-t border-neutral-200 space-y-2 animate-fade-in">
+                            <p className="text-xs font-semibold text-neutral-700 mb-3">Entregáveis desta semana:</p>
+                            {step.deliverables.map((deliverable, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                                <span className="text-neutral-700 text-sm">{deliverable}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
                       {/* Check Icon */}
@@ -66,9 +103,12 @@ const Implementation = ({ data }) => {
 
         {/* Bottom Badge */}
         <div className="text-center mt-12">
-          <div className="inline-block bg-amber-500 text-white px-6 py-3 rounded-full font-semibold shadow-xl">
+          <div className="inline-block bg-amber-500 text-white px-6 py-3 rounded-full font-semibold shadow-xl mb-4">
             ⚡ Implementação rápida e estruturada em 30 dias
           </div>
+          <p className="text-neutral-600 max-w-2xl mx-auto">
+            {data.finalNote}
+          </p>
         </div>
       </div>
     </section>

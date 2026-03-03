@@ -3,10 +3,13 @@ import './App.css';
 import { mockData } from './data/mock';
 import Hero from './components/Hero';
 import Problems from './components/Problems';
+import StrategicVision from './components/StrategicVision';
 import Method from './components/Method';
+import PillarsConnection from './components/PillarsConnection';
 import Implementation from './components/Implementation';
 import Benefits from './components/Benefits';
 import Applications from './components/Applications';
+import Differential from './components/Differential';
 import SocialProof from './components/SocialProof';
 import Objections from './components/Objections';
 import FinalCTA from './components/FinalCTA';
@@ -54,10 +57,16 @@ function App() {
       {/* Problems Section */}
       <Problems data={mockData.problems} />
       
-      {/* Method M.D.S Section */}
+      {/* Strategic Vision Section (NEW) */}
+      <StrategicVision data={mockData.strategicVision} />
+      
+      {/* Method M.D.S Section (Enhanced) */}
       <Method data={mockData.method} />
       
-      {/* Implementation Section */}
+      {/* Pillars Connection Section (NEW) */}
+      <PillarsConnection data={mockData.pillarsConnection} />
+      
+      {/* Implementation Section (Enhanced) */}
       <Implementation data={mockData.implementation} />
       
       {/* Benefits Section */}
@@ -65,6 +74,9 @@ function App() {
       
       {/* Applications Section */}
       <Applications data={mockData.applications} />
+      
+      {/* Differential Section (NEW) */}
+      <Differential data={mockData.differential} />
       
       {/* Social Proof Section */}
       <SocialProof data={mockData.socialProof} />
