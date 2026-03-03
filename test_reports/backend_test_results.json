@@ -1,0 +1,304 @@
+{
+  "timestamp": "2026-03-03T01:53:38.288190",
+  "summary": {
+    "total_tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "success_rate": 100.0
+  },
+  "results": [
+    {
+      "test_name": "API Root Endpoint",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.560492,
+        "response_data": {
+          "message": "MSD API - M\u00e1quina Digital Estruturada",
+          "status": "online",
+          "version": "2.0.0"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:33.346764"
+    },
+    {
+      "test_name": "Health Check Endpoint",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/health",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.542725,
+        "response_data": {
+          "status": "healthy",
+          "database": "connected"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:33.890793"
+    },
+    {
+      "test_name": "Create Lead",
+      "success": true,
+      "details": {
+        "method": "POST",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.392305,
+        "response_data": {
+          "success": true,
+          "message": "Lead capturado com sucesso! Entraremos em contato em breve.",
+          "lead_id": "c4cda13b-0f39-45e6-98ea-488c045172a0"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:34.284489"
+    },
+    {
+      "test_name": "Get All Leads",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.403336,
+        "response_data": [
+          {
+            "id": "c4cda13b-0f39-45e6-98ea-488c045172a0",
+            "name": "Teste Lead 015333",
+            "email": "teste015333@example.com",
+            "phone": "11999999999",
+            "message": "Mensagem de teste do backend",
+            "source": "backend_test",
+            "utm_source": "test",
+            "utm_medium": "automated",
+            "utm_campaign": "backend_testing",
+            "created_at": "2026-03-03T01:53:34.059000",
+            "status": "new"
+          },
+          {
+            "id": "2e2aa0ba-0d54-4dc1-a698-7ce630d67769",
+            "name": "Teste Lead 015318",
+            "email": "teste015318@example.com",
+            "phone": "11999999999",
+            "message": "Mensagem de teste do backend",
+            "source": "backend_test",
+            "utm_source": "test",
+            "utm_medium": "automated",
+            "utm_campaign": "backend_testing",
+            "created_at": "2026-03-03T01:53:19.156000",
+            "status": "contacted"
+          }
+        ]
+      },
+      "timestamp": "2026-03-03T01:53:34.688464"
+    },
+    {
+      "test_name": "Get Leads - Filter by Status",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads?status=new",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.428025,
+        "response_data": [
+          {
+            "id": "c4cda13b-0f39-45e6-98ea-488c045172a0",
+            "name": "Teste Lead 015333",
+            "email": "teste015333@example.com",
+            "phone": "11999999999",
+            "message": "Mensagem de teste do backend",
+            "source": "backend_test",
+            "utm_source": "test",
+            "utm_medium": "automated",
+            "utm_campaign": "backend_testing",
+            "created_at": "2026-03-03T01:53:34.059000",
+            "status": "new"
+          }
+        ]
+      },
+      "timestamp": "2026-03-03T01:53:35.117754"
+    },
+    {
+      "test_name": "Get Leads - Pagination",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads?limit=5&skip=0",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.405909,
+        "response_data": [
+          {
+            "id": "c4cda13b-0f39-45e6-98ea-488c045172a0",
+            "name": "Teste Lead 015333",
+            "email": "teste015333@example.com",
+            "phone": "11999999999",
+            "message": "Mensagem de teste do backend",
+            "source": "backend_test",
+            "utm_source": "test",
+            "utm_medium": "automated",
+            "utm_campaign": "backend_testing",
+            "created_at": "2026-03-03T01:53:34.059000",
+            "status": "new"
+          },
+          {
+            "id": "2e2aa0ba-0d54-4dc1-a698-7ce630d67769",
+            "name": "Teste Lead 015318",
+            "email": "teste015318@example.com",
+            "phone": "11999999999",
+            "message": "Mensagem de teste do backend",
+            "source": "backend_test",
+            "utm_source": "test",
+            "utm_medium": "automated",
+            "utm_campaign": "backend_testing",
+            "created_at": "2026-03-03T01:53:19.156000",
+            "status": "contacted"
+          }
+        ]
+      },
+      "timestamp": "2026-03-03T01:53:35.524961"
+    },
+    {
+      "test_name": "Get Leads Stats",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads/stats",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.409481,
+        "response_data": {
+          "total": 2,
+          "by_status": {
+            "new": 1,
+            "contacted": 1,
+            "converted": 0
+          },
+          "by_source": {
+            "backend_test": 2
+          }
+        }
+      },
+      "timestamp": "2026-03-03T01:53:35.935719"
+    },
+    {
+      "test_name": "Export Leads CSV",
+      "success": true,
+      "details": {
+        "method": "GET",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads/export",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.280802,
+        "response_data": "ID,Nome,Email,Telefone,Mensagem,Origem,Status,Data\r\nc4cda13b-0f39-45e6-98ea-488c045172a0,Teste Lead 015333,teste015333@example.com,11999999999,Mensagem de teste do backend,backend_test,new,03/03/2026 "
+      },
+      "timestamp": "2026-03-03T01:53:36.323978"
+    },
+    {
+      "test_name": "Update Lead Status",
+      "success": true,
+      "details": {
+        "method": "PATCH",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads/c4cda13b-0f39-45e6-98ea-488c045172a0/status?status=contacted",
+        "expected_status": 200,
+        "actual_status": 200,
+        "response_time": 0.390387,
+        "response_data": {
+          "success": true,
+          "message": "Status atualizado com sucesso"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:36.715694"
+    },
+    {
+      "test_name": "Create Lead - Invalid Data",
+      "success": true,
+      "details": {
+        "method": "POST",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads",
+        "expected_status": 422,
+        "actual_status": 422,
+        "response_time": 0.729461,
+        "response_data": {
+          "detail": [
+            {
+              "type": "string_too_short",
+              "loc": [
+                "body",
+                "name"
+              ],
+              "msg": "String should have at least 2 characters",
+              "input": "",
+              "ctx": {
+                "min_length": 2
+              },
+              "url": "https://errors.pydantic.dev/2.12/v/string_too_short"
+            },
+            {
+              "type": "value_error",
+              "loc": [
+                "body",
+                "email"
+              ],
+              "msg": "value is not a valid email address: An email address must have an @-sign.",
+              "input": "invalid-email",
+              "ctx": {
+                "reason": "An email address must have an @-sign."
+              }
+            },
+            {
+              "type": "string_too_short",
+              "loc": [
+                "body",
+                "phone"
+              ],
+              "msg": "String should have at least 10 characters",
+              "input": "123",
+              "ctx": {
+                "min_length": 10
+              },
+              "url": "https://errors.pydantic.dev/2.12/v/string_too_short"
+            }
+          ]
+        }
+      },
+      "timestamp": "2026-03-03T01:53:37.447098"
+    },
+    {
+      "test_name": "Update Non-existent Lead",
+      "success": true,
+      "details": {
+        "method": "PATCH",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads/fake-id/status?status=contacted",
+        "expected_status": 404,
+        "actual_status": 404,
+        "response_time": 0.390718,
+        "response_data": {
+          "detail": "Lead n\u00e3o encontrado"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:37.839077"
+    },
+    {
+      "test_name": "Update Lead - Invalid Status",
+      "success": true,
+      "details": {
+        "method": "PATCH",
+        "url": "https://maquina-crescimento.preview.emergentagent.com/api/leads/some-id/status?status=invalid_status",
+        "expected_status": 400,
+        "actual_status": 400,
+        "response_time": 0.446997,
+        "response_data": {
+          "detail": "Status inv\u00e1lido. Use: new, contacted, converted, lost"
+        }
+      },
+      "timestamp": "2026-03-03T01:53:38.287350"
+    }
+  ]
+}
