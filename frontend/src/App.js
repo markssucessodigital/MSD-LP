@@ -28,7 +28,10 @@ import { initGA, initFBPixel, trackCTAClick, initScrollTracking, trackTimeOnPage
 function LandingPage({ onCTAClick }) {
   return (
     <>
-      <SEO />
+      {/* SEO Component - Desabilitado temporariamente devido a erro no Helmet 
+          Para habilitar: descomentar linha abaixo após corrigir react-helmet-async
+          <SEO /> 
+      */}
       <Hero data={mockData.hero} onCTAClick={() => onCTAClick('hero')} />
       <Problems data={mockData.problems} />
       <CTASection
